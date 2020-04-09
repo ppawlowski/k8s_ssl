@@ -1,7 +1,7 @@
 [jump_nodes]
-bastion ansible_host=34.255.73.40
+bastion ansible_host=XX.XX.XX.XX
 
 [k8s_nodes]
-k8s_master ansible_host=10.0.102.101 ansible_user=ubuntu
-k8s_worker_01 ansible_host=10.0.101.157 ansible_user=ubuntu
-k8s_worker_02 ansible_host=10.0.100.132 ansible_user=ubuntu
+k8s_master ansible_host=192.168.0.1 ansible_user=ubuntu
+k8s_worker_01 ansible_host=192.168.0.100 ansible_user=ubuntu
+k8s_worker_02 ansible_host=192.168.0.101 ansible_user=ubuntu
