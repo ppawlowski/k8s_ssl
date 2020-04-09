@@ -1,0 +1,10 @@
+k8s_ssl_directory_path: '/etc/ssl'
+k8s_ssl_certificate_files:
+  - cert.key
+  - cert.pem
+k8s_ssl_certificates_owner: 'root'
+k8s_ssl_certificates_group: 'root'
+k8s_ssl_services:
+  - daemon-reload
+  - kubelet
+  - docker

@@ -1,0 +1,23 @@
+- name: Create directory for certificates
+  file:
+    path: '{{k8s_ssl_directory_path}}'
+    owner: '{{k8s_ssl_certificates_owner}}'
+    group: '{{k8s_ssl_certificates_group}}'
+    mode: 0700
+    state: directory
+
+- name: Copy certificate files
+  copy:
+    src: 'certificates/{{item}}'
+    dest: '{{k8s_ssl_directory_path}}'
+    owner: '{{k8s_ssl_certificates_owner}}'
+    group: '{{k8s_ssl_certificates_group}}'
+    mode: 0600
+    backup: yes
+  with_items: '{{k8s_ssl_certificate_files}}'
+
+- name: Restart k8s services
+  service:
+    name: '{{item}}'
+    state: restarted
+  with_items: '{{k8s_ssl_services}}'
